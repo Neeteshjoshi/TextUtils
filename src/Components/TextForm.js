@@ -64,7 +64,7 @@ export default function TextForm(props) {
                 <h2>Text Summary</h2>
                 <h6>Minutes to read: {0.0008 * text.split(' ').length}</h6>
                 <h6>Characters: {text.length}</h6>
-                <h6>Words: {text.split(' ').length}</h6>
+                <h6>Words: {text.split(' ').filter((element)=>{return element.length!==0}).length}</h6>
             </div>
 
             <div className='container my-2' style={{ color: props.mode === 'light' ? '#434242' : 'white' }}>
