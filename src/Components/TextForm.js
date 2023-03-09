@@ -48,15 +48,15 @@ export default function TextForm(props) {
     return (
         <>
             <div className='container' style={{ color: props.mode === 'light' ? '#434242' : 'white' }}>
-                <h1 className='text-center' >{props.heading}</h1>
+                <h1 className='text-center my-4' >{props.heading}</h1>
                 <div className="mb-3">
-                    <textarea className="form-control" value={text} onChange={handleOnChange} style={{ backgroundColor: props.mode === 'light' ? 'white' : '#181D31', color: props.mode === 'light' ? '#434242' : 'white' }} id="exampleFormControlTextarea1" rows="5"></textarea>
+                    <textarea className="form-control" value={text} onChange={handleOnChange} style={{ backgroundColor: props.mode === 'light' ? 'white' : '#181D31', color: props.mode === 'light' ? '#434242' : 'white' }} id="exampleFormControlTextarea1" rows="6"></textarea>
                 </div>
-                <div className="d-flex justify-content-center">
-                    <button className="btn btn-primary mx-2" onClick={handleUppercaseButton}>Convert to uppercase</button>
-                    <button className="btn btn-primary mx-2" onClick={handleLowercaseButton}>Convert to lowercase</button>
-                    <button className="btn btn-primary mx-2" onClick={handleClearTextButton}>Clear Text</button>
-                    <button className="btn btn-primary mx-2" onClick={handleClearSpaceButton}>Clear extra spaces</button>
+                <div className=" container d-flex justify-content-center">
+                    <button disabled={text.length===0} className="btn btn-primary mx-2" onClick={handleUppercaseButton}>Convert to uppercase</button>
+                    <button disabled={text.length===0} className="btn btn-primary mx-2" onClick={handleLowercaseButton}>Convert to lowercase</button>
+                    <button disabled={text.length===0} className="btn btn-primary mx-2" onClick={handleClearTextButton}>Clear Text</button>
+                    <button disabled={text.length===0} className="btn btn-primary mx-2" onClick={handleClearSpaceButton}>Clear extra spaces</button>
                 </div>
             </div>
 
@@ -69,7 +69,7 @@ export default function TextForm(props) {
 
             <div className='container my-2' style={{ color: props.mode === 'light' ? '#434242' : 'white' }}>
                 <h2>Preview</h2>
-                <h6>{text}</h6>
+                <h6>{text.length>0?text:"Nothing to preview"}</h6>
             </div>
         </>
     )
